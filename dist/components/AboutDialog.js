@@ -1,0 +1,7 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { cn, Dialog, Button } from "@cloud-dog/ui";
+import { brand } from "@cloud-dog/tokens";
+export function AboutDialog(props) {
+    const { open, onOpenChange, productName = brand.name, description, companyName = "Viewdeck Engineering Limited", websiteUrl, version, className, } = props;
+    return (_jsx(Dialog, { open: open, onOpenChange: onOpenChange, label: `About ${productName}`, children: _jsxs("div", { className: cn("flex flex-col items-center gap-4 text-center", className), children: [_jsx("img", { src: brand.logoPath, alt: "", className: "h-16 w-16" }), _jsxs("div", { className: "space-y-1", children: [_jsx("h2", { className: "text-lg font-semibold", "data-testid": "about-product-name", children: productName }), version ? (_jsxs("p", { className: "text-sm text-muted-foreground", "data-testid": "about-version", children: ["v", version] })) : null] }), description ? (_jsx("p", { className: "text-sm text-muted-foreground max-w-sm", "data-testid": "about-description", children: description })) : null, _jsx("p", { className: "text-xs text-muted-foreground", "data-testid": "about-company", children: companyName }), websiteUrl ? (_jsx("a", { href: websiteUrl, target: "_blank", rel: "noopener noreferrer", className: "text-xs text-primary underline", "data-testid": "about-website", children: websiteUrl })) : null, _jsx(Button, { variant: "outline", size: "sm", onClick: () => onOpenChange(false), children: "Close" })] }) }));
+}
